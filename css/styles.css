@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+:root {
+    /* Font */
+    --ff: 'Inter', sans-serif;
+
+    /* Colors */
+    
+    /* Primary */
+    --limeGreen: hsl(163, 72%, 41%);
+    --brightRed: hsl(356, 69%, 56%);
+    
+    --facebook: hsl(208, 92%, 53%);
+    --twitter: hsl(203, 89%, 53%);
+    --instagram: hsl(329, 70%, 58%);
+    --youTube: hsl(348, 97%, 39%);
+
+    /* Dark Theme */
+    --toggleDark: linear gradient hsl(210, 78%, 56%) to hsl(146, 68%, 55%);
+
+    /* Light Theme */
+    --toggleLight: hsl(230, 22%, 74%);
+
+    /* Light Theme */
+    --backgroundColor: hsl(0, 0%, 100%);
+    --cardBackground: hsl(227, 47%, 96%);
+    --textColor-1: hsl(228, 12%, 44%);
+    --textColor-2: hsl(230, 17%, 14%);
+
+    --cardBackgroundHover: hsl(228, 17%, 88%);
+}
+
+.darkmode {
+    /* Dark Theme */
+    --backgroundColor: hsl(230, 17%, 14%); /* background */
+    --cardBackground: hsl(228, 28%, 20%); /* Card Background */
+    --textColor-1: hsl(228, 34%, 66%);  /* Text */
+    --textColor-2: hsl(0, 0%, 100%); /* Text */
+
+    --cardBackgroundHover: hsl(228, 23%, 22%);
+}
+
+html {
+    box-sizing     : border-box;
+    font-size      : 62.5%;
+    scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--ff);
+    font-size  : 1.4rem;
+    padding: 0;
+    margin: 0;
+    background: var(--backgroundColor);
+    transition: .5s;
+}
+
+/* ==============
+    Global Styles
+============== */
+
+.container {
+    width : min(90%, 120rem);
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ==============
+    Utilities
+============== */
+
+.no-margin {
+    margin: 0;
+}
+
+.no-padding {
+    padding: 0;
+}
+
+.no-border {
+    border: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+/* ==============
+    Theme Switcher
+============== */
+
+.theme-switcher {
+    position: relative;
+    width: 5rem;
+    height: 2.5rem;
+    border-radius: 16rem;
+    background: var(--toggleLight);
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.theme-switcher.active {
+    background: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+}
+
+.theme-switcher .indicator {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
+    border-radius: 50%;
+    transform: scale(0.75);
+    transition: .5s;
+}
+
+.theme-switcher.active .indicator {
+    right: 2.5rem;
+    background: var(--backgroundColor);
+}
+
+/* ==============
+    Custom Styles
+============== */
+
+/* ==============
+    Header
+============== */
+
+.header {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-text {
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--textColor-1);
+    color: var(--textColor-2);
+}
+
+.header-text__title {
+    padding: .5rem 0;
+}
+
+.header-text__subtitle {
+    font-size: 1.6rem;
+}
+
+.header-text__title, .header-text__subtitle{
+    margin: 0;
+}
+
+.header-text__subtitle, .theme-container {
+    color: var(--textColor-1);
+    font-weight: bold;
+}
+
+.theme-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.8rem;
+}
+
+@media (min-width: 768px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+    .header-text {
+        border: none;
+    }
+    .theme-container {
+        gap: 1rem;
+        font-size: 1.6rem;
+    }
+}
+
+/* ==============
+    MAIN - CARDS
+============== */
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: .5rem;
+    padding: 2rem 0;
+    background-color: var(--cardBackground);
+    gap: 1.2rem;
+    color: var(--textColor-2);
+}
+
+.card:hover, .social:hover {
+    background-color: var(--cardBackgroundHover);
+    cursor: pointer;
+}
+
+.card--facebook {
+    border-top: .5rem solid var(--facebook);
+}
+
+.card--twitter {
+    border-top: .5rem solid var(--twitter);
+}
+
+.card--instagram {
+    border-top: .5rem solid var(--instagram);
+}
+
+.card--youtube {
+    border-top: .5rem solid var(--youTube);
+}
+
+.card-title {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: var(--textColor-1);
+}
+
+.card-center__text, .card-center__number {
+    margin: 0;
+}
+
+.card-center__number {
+    font-size: 6rem;
+    font-weight: bold;
+}
+
+.card-center__text {
+    letter-spacing: .5rem;
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    color: var(--textColor-1);
+}
+
+.card-footer {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: var(--limeGreen);
+    font-weight: bold;
+}
+
+.card-footer--red {
+    color: var(--brightRed);
+}
+
+.card-footer__icon {
+    position: absolute;
+    left: -1.2rem;
+    top: 1rem;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2rem;
+    }
+}
+
+/* ==============
+    Overview
+============== */
+
+.overview__title {
+    color: var(--textColor-1);
+    font-size: 2.7rem;
+    margin-top: 4rem;
+}
+
+.social-media-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.social {
+    background-color: var(--cardBackground);
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+    border-radius: .5rem;
+    color: var(--textColor-2);
+}
+
+.social-top {
+    color: var(--textColor-1);
+    font-size: 1.6rem;
+}
+
+.social-bottom__number {
+    margin: 0;
+}
+
+.social-top, .social-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+}
+
+.social-bottom__porcentContainer {
+    position: relative;
+    color: var(--limeGreen);
+}
+
+.social-bottom__icon {
+    position: absolute;
+    left: -1.2rem;
+    top: 1.1rem;
+    cursor: pointer;
+}
+
+.social-bottom__porcent--red {
+    color: var(--brightRed);
+}
+
+.social-bottom__number {
+    font-size: 3.5rem;
+}
+
+@media (min-width: 768px) {
+    .social-media-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .social-media-container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
+}
